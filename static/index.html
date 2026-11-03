@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080d18">
+<meta name="description" content="Educational crypto market analysis and historical strategy research.">
+<link rel="manifest" href="/static/manifest.json">
+<link rel="icon" href="/static/icon.svg" type="image/svg+xml">
+<title>Crypto AI Analyzer</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="app-shell">
+<header class="topbar">
+  <div class="brand"><div class="brand-mark">₿</div><div><small>PERSONAL MARKET LAB</small><h1>Crypto AI <span>Analyzer</span></h1></div></div>
+  <div class="header-actions"><span class="connection"><i></i> API READY</span><button id="install" class="install-btn" hidden>Install</button></div>
+</header>
+<main>
+  <section class="welcome"><div><p class="eyebrow">MARKET OVERVIEW</p><h2>Good day, Analyst</h2><p class="muted">Explore market data. Test strategies. Learn from history.</p></div><div class="mode-tag"><span></span> PAPER MODE</div></section>
+  <section class="stats">
+    <article class="stat-card"><div class="stat-label"><span class="stat-icon">◈</span> WATCHLIST</div><strong>20 <small>pairs</small></strong><p>USDT market</p></article>
+    <article class="stat-card"><div class="stat-label"><span class="stat-icon">◷</span> HISTORY</div><strong>1 <small>year</small></strong><p>Historical candles</p></article>
+    <article class="stat-card"><div class="stat-label"><span class="stat-icon">⌁</span> TIMEFRAMES</div><strong>6 <small>frames</small></strong><p>5m – 1w</p></article>
+  </section>
+  <nav class="tabs" aria-label="Main navigation">
+    <button class="tab active" data-tab="scanner"><span>▥</span> Scanner</button>
+    <button class="tab" data-tab="strategy"><span>⌘</span> Strategy</button>
+    <button class="tab" data-tab="data"><span>▤</span> PDF Library</button>
+  </nav>
+  <section id="scanner" class="panel">
+    <div class="section-heading"><div><p class="eyebrow">MARKET INTELLIGENCE</p><h2>Market Scanner</h2></div><span class="live-tag"><i></i> DATA ON DEMAND</span></div>
+    <p class="muted intro">Select a market and timeframe to inspect historical candles and the latest example strategy output.</p>
+    <div class="field-grid"><label>Trading pair<select id="pair"></select></label><label>Timeframe<select id="tf"><option>5m</option><option>15m</option><option selected>1h</option><option>4h</option><option>1d</option><option>1w</option></select></label></div>
+    <button id="analyze" class="primary"><span>✧</span> Analyze selected coin <b>→</b></button>
+    <button id="scan20" class="primary" style="margin-top:10px;background:linear-gradient(100deg,#147b64,#1a9b78)"><span>⌕</span> Scan all 20 coins <b>→</b></button>
+    <div id="scanresults" class="result empty-state" style="margin-top:12px">Tap Scan all 20 coins to rank the watchlist.</div>
+    <div id="signal" class="result empty-state"><div class="empty-icon">⌁</div><b>Waiting for analysis</b><span>Choose a pair and tap Analyze market.</span></div>
+    <div class="list-heading"><div><p class="eyebrow">MARKET WATCH</p><h3>USDT Watchlist</h3></div><span class="subtle-tag">20 PAIRS</span></div>
+    <p class="muted tiny">Starter watchlist. Ranking will be based on completed historical tests, not predicted win rates.</p>
+    <div id="pairs" class="pairlist"></div>
+  </section>
+  <section id="strategy" class="panel hidden">
+    <div class="section-heading"><div><p class="eyebrow">RULE CONFIGURATION</p><h2>Strategy Builder</h2></div><span class="subtle-tag">BETA</span></div>
+    <p class="muted intro">Configure the example EMA + RSI rules and test them against historical candles. PDF uploads are reference material, not automatic model training.</p>
+    <label>Strategy name<input id="sname" value="My EMA + RSI"></label>
+    <div class="field-grid"><label>Fast EMA<input id="fast" type="number" min="2" max="100" value="9"></label><label>Slow EMA<input id="slow" type="number" min="3" max="200" value="21"></label></div>
+    <div class="field-grid"><label>RSI period<input id="rsi" type="number" value="14"></label><label>Long RSI max<input id="rmax" type="number" value="65"></label></div>
+    <div class="field-grid"><label>Stop loss %<input id="stop" type="number" step=".1" value="1"></label><label>Take profit %<input id="target" type="number" step=".1" value="2"></label></div>
+    <button id="backtest" class="primary"><span>◴</span> Run 1-year backtest <b>→</b></button>
+    <div id="bt" class="result empty-state">Backtest results will appear here.</div>
+  </section>
+  <section id="data" class="panel hidden">
+    <div class="section-heading"><div><p class="eyebrow">YOUR KNOWLEDGE BASE</p><h2>PDF Library</h2></div><span class="subtle-tag">UPLOAD</span></div>
+    <p class="muted intro">Add your own strategy PDFs for text extraction and review. This starter version does not automatically train an AI model from documents.</p>
+    <label class="upload-box"><span class="upload-icon">↑</span><b>Choose a PDF file</b><span>Tap to browse your device</span><input id="pdf" type="file" accept="application/pdf"></label>
+    <button id="upload" class="primary"><span>＋</span> Upload and extract text <b>→</b></button>
+    <div id="pdfout" class="result empty-state">No PDFs uploaded yet.</div>
+  </section>
+</main>
+<footer><span class="footer-mark">₿</span><div><b>Crypto AI Analyzer</b><p>Educational research only · No order execution</p></div></footer>
+</div>
+<script src="/static/app.js"></script>
+</body>
+</html>

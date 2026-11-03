@@ -1,0 +1,14 @@
+{
+  "name": "Crypto AI Analyzer",
+  "short_name": "Crypto AI",
+  "description": "Educational crypto market analysis and historical strategy research.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#080d18",
+  "theme_color": "#080d18",
+  "orientation": "portrait",
+  "icons": [
+    {"src":"/static/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}
